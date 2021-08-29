@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie info</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body class="">
+    <!-- <canvas class = "main-canvas">
+
+    </canvas> -->
+    <nav class="container">
+      <div class="left">
+        <div id="menu">
+          <div class="toggler">
+            <input type="checkbox" id="menu-checkbox" />
+            <label for="menu-checkbox">
+              <i class="fas fa-bars"></i>
+            </label>
+            <div class="menu">
+              <ul class="nav-headlines">
+                <li><a>HOME</a></li>
+                <li>
+                  <label for="genre-checkbox"><span>GENRE</span> </label>
+                  <input type="checkbox" id="genre-checkbox" name="radio" />
+                  <ul class="contents genre-contents"></ul>
+                </li>
+                <li>
+                  <label for="type-checkbox"><span>TYPES</span> </label>
+                  <input type="checkbox" id="type-checkbox" name="radio" />
+                  <ul class="contents">
+                    <li><a href="/tv">TV Series</a></li>
+                    <li><a href="/movie">Movies</a></li>
+                    <li><a href="/ova">OVAs</a></li>
+                    <li><a href="/ona">ONAs</a></li>
+                    <li><a href="/special">Specials</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="logo">MOVIE</div>
+      </div>
+      <div class="right">
+        <div class="socials">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-discord"></i>
+        </div>
+        <div class="sign-in">
+          <i class="fas fa-user-alt"></i>
+          <span>Sign in</span>
+        </div>
+      </div>
+    </nav>
+    <div class="search">
+      <form action="">
+        <input type="text" placeholder="Enter anime name" />
+        <div class="search-results">
+          <div class="items"></div>
+          <!-- <div class="bottom"><a href="">view all results</a></div> -->
+        </div>
+        <button><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+    <!-- <section id="filter">
+      
+    </section> -->
+
+    <div class="detail-overlay">
+      <i class="fas fa-times"></i>
+      <div class="detail-container container">
+        <div class="detail-overlay__movie-image">
+          <img
+            src="https://image.tmdb.org/t/p/w500/lSEr1nphZuCqXli3VziIgCI8Ivf.jpg"
+            alt=""
+          />
+        </div>
+        <div class="movie-details">
+          <div class="movie-title">Suicide Squad</div>
+          <div class="synopsis">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum
+            libero quae, voluptas deserunt unde repellat delectus non amet ut
+            dolorum earum dolore maiores fuga est et, nesciunt perspiciatis
+            maxime nostrum.
+          </div>
+        </div>
+        <div class="casts">
+          <div class="person">
+            <div class="image">
+              <img
+                src="https://image.tmdb.org/t/p/w154//43ROSeI5KizWdayMyNKobU6fgGc.jpg"
+                alt=""
+              />
+            </div>
+            <span class="name">Margot Robbie</span>
+            <span class="character-name">(Harley Quinn)</span>
+          </div>
+
+          <div class="person">
+            <div class="image">
+              <img
+                src="https://image.tmdb.org/t/p/w154//43ROSeI5KizWdayMyNKobU6fgGc.jpg"
+                alt=""
+              />
+            </div>
+            <span class="name">Margot Robbie</span>
+            <span class="character-name">(Harley Quinn)</span>
+          </div>
+
+          <div class="person">
+            <div class="image">
+              <img
+                src="https://image.tmdb.org/t/p/w154//43ROSeI5KizWdayMyNKobU6fgGc.jpg"
+                alt=""
+              />
+            </div>
+            <span class="name">Margot Robbie</span>
+            <span class="character-name">(Harley Quinn)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="intro">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est
+      autem esse tempore cum explicabo eaque sapiente minima unde eius. Illum
+      officiis ex obcaecati nesciunt deleniti itaque beatae ea vel minima. Odio
+      commodi rerum eveniet maxime voluptatem, cumque itaque, quam sint esse
+      fugiat magni dolorum ullam animi molestias a? Eaque.
+    </div>
+    <section id="main" class="container">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner"></i>
+      </div>
+    </section>
+
+    <footer>
+      <canvas class="footer-canvas"> </canvas>
+      created by Ashish-kumar-khatri
+    </footer>
+  </body>
+  <script src="script/main.js"></script>
+  <script src="script/search.js"></script>
+  <script src="script/detail.js"></script>
+  <!-- <script src="script/canvas.js"></script> -->
+</html>
