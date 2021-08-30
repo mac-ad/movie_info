@@ -20,7 +20,6 @@ searchInput.addEventListener("keyup", () => {
         if (datum.release_date) {
           release_date = datum.release_date.substring(0, 4);
         }
-        console.log(release_date);
         if (data.results != null && count < 5) {
           count++;
           let image_url;
@@ -47,4 +46,9 @@ searchInput.addEventListener("keyup", () => {
     .catch((err) => {
       console.error(err);
     });
+});
+
+searchForm.addEventListener("submit", () => {
+  event.preventDefault();
+  getData("searching", searchInput.value, 1);
 });

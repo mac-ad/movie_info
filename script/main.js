@@ -45,6 +45,7 @@ if (window.innerWidth < "768") {
 let construct_movie_container = (Base_url, movie) => {
   movieBlock = document.createElement("div");
   movieBlock.classList.add("movie");
+  if (!movie.release_date || !movie.poster_path) return;
   movieBlock.innerHTML = `<div class="movie" data-url = "${Base_url}movie/${
     movie.id
   }" title = "${movie.title}" >
@@ -66,7 +67,7 @@ let construct_movie_container = (Base_url, movie) => {
             <span class="figure"><i class = "fas fa-star"></i></span>
             <span class="timeUnit">${movie.vote_average}</span>
             </span>
-            <div class="type">${movie.media_type}</div>
+            <div class="type">movie</div>
             </div>
             </div>
             </div>`;
@@ -81,7 +82,7 @@ let addDott = () => {
   return dott;
 };
 
-let createPagination = (totalPages, page_no) => {
+let createPagination = (type, query, totalPages, page_no) => {
   pagination.innerHTML = "";
   let active = page_no;
   let beforePage = page_no - 1;
@@ -176,14 +177,18 @@ let createPagination = (totalPages, page_no) => {
 
   paginationBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      getData(event.target.dataset.page_no);
+      if (type == "trending") {
+        getData(type, "no-query", event.target.dataset.page_no);
+      } else if (type == "searching") {
+        getData(type, query, event.target.dataset.page_no);
+      }
       window.scrollTo(0, 0);
     });
   });
 };
 
 // getting data
-function getData(page_no) {
+function getData(type, query, page_no) {
   const api_key = "917d4a4bdb767099d63b1be403c4f192";
   let Base_url = "https://api.themoviedb.org/3/";
   if (main.querySelector(".main-container")) {
@@ -191,7 +196,11 @@ function getData(page_no) {
   }
   // loadingSpinner.style.display = "block";
   let api_url;
-  api_url = `${Base_url}trending/movie/week?api_key=${api_key}&page=${page_no}`;
+  if (type === "trending") {
+    api_url = `${Base_url}trending/movie/week?api_key=${api_key}&page=${page_no}`;
+  } else if (type === "searching") {
+    api_url = `${Base_url}search/movie?api_key=${api_key}&query=${query}&page=${page_no}`;
+  }
 
   fetch(api_url)
     .then((res) => res.json())
@@ -202,14 +211,16 @@ function getData(page_no) {
       }
       let movies = data.results;
       // if (parseInt(page_no) === 1) {
-      createPagination(data.total_pages, page_no);
+      createPagination(type, query, data.total_pages, page_no);
       // }
       console.log(data);
       mainContainer = document.createElement("div");
       mainContainer.classList.add("main-container");
       movies.forEach((movie) => {
         m = construct_movie_container(Base_url, movie);
-        mainContainer.append(m);
+        if (m != undefined) {
+          mainContainer.append(m);
+        }
       });
       main.append(mainContainer);
       loadingSpinner.style.display = "none";
@@ -224,7 +235,7 @@ function getData(page_no) {
       console.log("error occures", err);
     });
 }
-getData(1);
+getData("trending", "no-query", 1);
 
 // getting genre
 // const genreContainer = navMenu.querySelector("ul.genre-contents");
