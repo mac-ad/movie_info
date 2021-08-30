@@ -568,7 +568,7 @@ footer {
   position: fixed;
   top: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.795);
+  background: rgba(0, 0, 0, 0.918);
   padding: 1em 0;
   visibility: hidden;
 }
