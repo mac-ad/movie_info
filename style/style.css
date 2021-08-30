@@ -10,6 +10,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -568,13 +569,22 @@ footer {
   top: 0;
   z-index: 10;
   background: rgba(0, 0, 0, 0.795);
-  padding: 2em;
+  padding: 1em 0;
   visibility: hidden;
 }
 
+/* .detail-overlay .detail-container {
+  border: 1px solid red;
+  margin: 5em auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+} */
+
 .detail-overlay .detail-container {
   /* border: 1px solid red; */
-  margin: 5em auto;
+  margin: 0 auto;
+  margin-top: 3em;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -585,8 +595,11 @@ footer {
   font-size: 2.5rem;
   position: fixed;
   right: 0;
-  margin: 2em;
+  z-index: 999;
+  top: 0;
+  /* border: 1px solid red; */
   cursor: pointer;
+  padding: 0.5em;
   opacity: 0.6;
 }
 
@@ -596,9 +609,9 @@ footer {
 
 .detail-overlay .detail-overlay__movie-image {
   /* border: 1px solid red; */
-  margin: 2em;
+  margin: 0 auto;
   width: 20rem;
-  min-height: 30rem;
+  min-height: 10rem;
 }
 .detail-overlay .detail-overlay__movie-image img {
   width: 100%;
@@ -607,7 +620,7 @@ footer {
 
 .detail-overlay .movie-details {
   /* border: 1px solid white; */
-  width: 50%;
+  width: 90%;
   margin-top: 2em;
   display: flex;
   flex-direction: column;
@@ -616,7 +629,7 @@ footer {
 
 .detail-overlay .movie-details .movie-title {
   /* border: 1px solid white; */
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
 }
 .detail-overlay .movie-details .synopsis {
@@ -625,6 +638,7 @@ footer {
   font-size: 1.2rem;
   line-height: 1.8rem;
   color: white;
+  /* border: 1px solid red; */
   max-width: 600px;
 }
 
@@ -633,6 +647,7 @@ footer {
   display: flex;
   width: 100%;
   overflow-x: scroll;
+  margin-top: 8em;
 }
 
 .detail-overlay .casts::-webkit-track {
@@ -644,7 +659,7 @@ footer {
   border-radius: 5em;
 }
 .detail-overlay .casts::-webkit-scrollbar {
-  width: 2em;
+  width: 1em;
 }
 
 .detail-overlay .casts:before {
@@ -652,11 +667,15 @@ footer {
   color: white;
   font-size: 1.2rem;
   position: absolute;
-  top: -1em;
+  top: -100em;
 }
 
-.detail-overlay .person {
-  /* border: 1px solid white; */
+.detail-overlay .overlay {
+  /* position: fixed; */
+  /* height: 500px; */
+  width: 90%;
+  z-index: 12;
+  border-radius: 0.5em;
 }
 
 .detail-overlay .casts > *:not(:last-child) {
@@ -669,7 +688,12 @@ footer {
   align-items: center;
   padding: 1em 0;
   cursor: pointer;
+  position: relative;
 }
+
+.detail-overlay .casts .person:hover {
+}
+
 .detail-overlay .casts .person .image {
   height: 80px;
   width: 80px;
@@ -689,6 +713,42 @@ footer {
   /* margin-right: 0.5em; */
   white-space: nowrap;
 }
+.detail-overlay .small-details {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.detail-overlay .small-details .rating .rating-value,
+i {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 1;
+  opacity: 0.5;
+}
+.detail-overlay .small-details .runtime {
+  color: white;
+  opacity: 0.5;
+  font-weight: 1;
+}
+
+.detail-overlay .small-details .genres > * {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 0.3em 0.5em;
+  border-radius: 0.5em;
+  color: white;
+  opacity: 0.3;
+  font-weight: 1;
+  margin-right: 1em;
+}
+
+.detail-overlay .small-details .watch_link {
+  color: white;
+  font-weight: 1;
+  /* background-color: red; */
+}
+
 @media only screen and (min-width: 600px) {
   nav .right .socials {
     display: flex;
@@ -702,7 +762,9 @@ footer {
   nav .right .socials {
     display: flex;
   }
-
+  .detail-overlay .movie-details {
+    width: 50%;
+  }
   nav #menu .toggler > label:hover ~ .menu,
   nav #menu .toggler > .menu:hover {
     height: auto;
@@ -888,4 +950,40 @@ footer {
 canvas.footer-canvas {
   /* border: 1px solid white; */
   position: absolute;
+}
+
+.pagination {
+  background-color: var(--light-gray);
+  padding: 0.5em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination > span {
+  color: white;
+  font-size: 1.3rem;
+  padding: 0.5em;
+  cursor: pointer;
+  margin: 0 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.pagination > span.active {
+  opacity: 0.9;
+  background-color: rgb(49, 49, 49);
+}
+
+.pagination > span:hover {
+  opacity: 0.9;
+  background-color: rgb(49, 49, 49);
+}
+
+.pagination > span.dott {
+  pointer-events: none;
 }
