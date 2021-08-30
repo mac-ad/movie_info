@@ -282,8 +282,9 @@ nav #menu .menu ul.contents li {
   white-space: nowrap;
 }
 nav .right {
-  /* display: none; */
+  display: flex;
   padding: 0 0.5em;
+  align-items: center;
 }
 
 nav .right .socials {
@@ -304,7 +305,31 @@ nav .right .sign-in {
   justify-content: center;
   border-radius: 5em;
 }
+nav .right .socials i:not(.fa-discord) {
+  font-size: 2rem;
+  color: white;
+  padding: 0.2em 0.3em;
+  border-radius: 7px;
+}
+nav .right .socials i.fa-facebook {
+  background-color: rgb(8, 75, 129);
+}
+nav .right .socials i.fa-twitter {
+  background-color: rgb(12, 143, 250);
+}
+nav .right .socials i.fa-discord {
+  font-size: 3rem;
+  color: rgb(175, 175, 175);
+}
 
+nav .right .socials i {
+  margin-right: 0.2em;
+  transition: transform 0.2s ease-in-out;
+}
+
+nav .right .socials i:hover {
+  transform: translateY(-5px);
+}
 nav .left form i:hover {
   color: var(--purple);
 }
@@ -750,8 +775,13 @@ i {
 }
 
 @media only screen and (min-width: 600px) {
+  nav .right {
+    width: 100%;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+  }
   nav .right .socials {
-    display: flex;
+    display: none;
   }
   section .main-container {
     grid-template-columns: repeat(3, 1fr);
@@ -761,6 +791,7 @@ i {
 @media only screen and (min-width: 700px) {
   nav .right .socials {
     display: flex;
+    /* border: 1px solid red; */
   }
   .detail-overlay .movie-details {
     width: 50%;
@@ -883,7 +914,7 @@ i {
     grid-template-columns: repeat(4, 1fr);
   }
   nav .right {
-    width: 65%;
+    /* width: 65%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -893,31 +924,6 @@ i {
     border-radius: 5em;
   }
 
-  nav .right .socials i:not(.fa-discord) {
-    font-size: 2rem;
-    color: white;
-    padding: 0.2em 0.3em;
-    border-radius: 7px;
-  }
-  nav .right .socials i.fa-facebook {
-    background-color: rgb(8, 75, 129);
-  }
-  nav .right .socials i.fa-twitter {
-    background-color: rgb(12, 143, 250);
-  }
-  nav .right .socials i.fa-discord {
-    font-size: 3rem;
-    color: rgb(175, 175, 175);
-  }
-
-  nav .right .socials i {
-    margin-right: 0.2em;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  nav .right .socials i:hover {
-    transform: translateY(-5px);
-  }
   nav .right {
     width: 100%;
   }
